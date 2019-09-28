@@ -152,7 +152,6 @@ const init = () => {
     if (data === 'q\n') {
       process.exit();
     } else {
-      console.log("init");
       let [command, ...args] = parseInput(data);
       doCommand(command, args);
 
