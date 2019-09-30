@@ -12,12 +12,16 @@ const commandDone = rl.close.bind(rl);
 /* 
 [ data example ]
 	id : 7788
-  content : docker 공부하기
+	content : docker 공부하기
 	tags : ["favorite","programming"]
 	status : todo
 */
 
-const print = (head, content) => console.log(`${head} : ${content}`);
+const print = (content, head) => {
+  const textContent = head ? `${head} : ${content}` : `${content}`;
+  console.log(textContent);
+};
+
 const formatJSON = data => JSON.stringify(data);
 const formatShowList = data => `총${data.length}건 : ${formatJSON(data)}`;
 
@@ -31,27 +35,31 @@ const groupBy = (array, property) =>
     return acc;
   }, {});
 
+const getIndexByID = (array, uid) => array.findIndex(item => item.id === uid);
+
 // 가장 큰 id 값에 1을 더한다.
 const makeUniqueId = data => Math.max(...data.map(item => item.id)) + 1;
 
 // execute command
-const showData = (data, keyword) => {
+const showData = bundle => {
+  const { data, keyword } = bundle;
   // show$$current show$${keyword}
 
   if (keyword == "current")
-    print("현재상태", formatJSON(groupBy(data, "status")));
+    print(formatJSON(groupBy(data, "status"), "현재상태"));
   else
     print(
-      `${keyword}리스트`,
       formatShowList(
         data
           .filter(item => item.status === keyword)
           .map(item => `${item.content}, ${item.id}번`)
-      )
+      ),
+      `${keyword}리스트`
     );
 };
 
-const addData = (data, content, tags, status) => {
+const addData = bundle => {
+  const { data, content, tags, status } = bundle;
   // add$$docker공부하기$$["favorite","programming"]
   const uid = makeUniqueId(data);
   const tagsData = JSON.parse(tags);
@@ -67,28 +75,38 @@ const addData = (data, content, tags, status) => {
 
   // show result
   // docker공부하기가 추가됐습니다.(id : 7788)
-  console.log(`${content}가 추가됐습니다. (id : ${uid})`);
-  showData(newData, "current");
+  print(`${content}가 추가됐습니다. (id : ${uid})`);
+  showData({ data: newData, keyword: "current" });
   return newData;
 };
 
-const updateData = () => {
+const updateData = bundle => {
+  const { data, uid, status } = bundle;
   // update$$7788$$doing
-  // update data
-  // delay to show result for 2 second
-  console.log("update");
+  const idx = getIndexByID(data, uid);
+  if (idx < 0)
+    throw Error(`업데이트 실패! [id:${uid}] 에 해당하는 데이터가 없습니다.`);
+
+  const newItem = { ...data[idx], status };
+  const newData = [...data.slice(0, idx), newItem, ...data.slice(idx + 1)];
+
+  setTimeout(() => {
+    print(`${data[idx].content}가 ${status}로 상태가 변경됐습니다.`);
+    showData({ data: newData, keyword: "current" });
+  }, 2000);
+  return newData;
 };
 
 const deleteData = () => {
   // delete$$7788
   // delete data
   // show result
-  console.log("delete");
+  print("delete");
 };
 
 const quit = () => {
-  // quit
-  return false;
+  print("프로그램을 종료합니다.");
+  process.exit(0);
 };
 
 // constant
@@ -99,12 +117,6 @@ const COMMANDS = new Map()
   .set("update", updateData)
   .set("delete", deleteData)
   .set("q", quit);
-
-const DEAFULT_DATA = {
-  todo: [123, 124],
-  doing: [123, 444],
-  done: []
-};
 
 // util function
 const pipe = (...functions) => args =>
@@ -177,15 +189,25 @@ const TEST_DATAS = [
 ];
 
 const test = () => {
-  showData(TEST_DATAS, "todo");
-  showData(TEST_DATAS, "current");
-  showData(TEST_DATAS, "done");
+  showData({ data: TEST_DATAS, keyword: "todo" });
+  showData({ data: TEST_DATAS, keyword: "current" });
+  showData({ data: TEST_DATAS, keyword: "done" });
 
-  console.log(makeUniqueId(TEST_DATAS));
+  print(makeUniqueId(TEST_DATAS));
 
-  console.log(
-    addData(TEST_DATAS, "test 데이터", '["favorite","programming"]', "todo")
+  print(
+    formatJSON(
+      addData({
+        data: TEST_DATAS,
+        content: "test 데이터",
+        tags: '["favorite","programming"]',
+        status: "todo"
+      })
+    )
   );
+
+  updateData({ data: TEST_DATAS, uid: 7788, status: "done" });
+  updateData({ data: TEST_DATAS, uid: 7790, status: "done" });
 };
 
 test();
