@@ -6,12 +6,12 @@ const rl = readline.createInterface({
 
 const question = () => {
   rl.question("명령어 입력하시오 ", command => {
-    (async () => {
-      if (command === "q") {
-        rl.close();
-        return;
-      }
+    if (command === "q") {
+      rl.close();
+      return;
+    }
 
+    (async () => {
       await runCommand(command);
       question();
     })();
@@ -26,24 +26,21 @@ const TODO_TPYE = {
   DONE: "done"
 };
 
-let firstHistory = new Map().set(0, {
-  type: TODO_TPYE.DOING,
-  name: "첫째 할 일",
-  tags: ["favorite"]
-});
+const Todo = function(type, name, tags) {
+  this.type = type;
+  this.name = name;
+  this.tags = tags;
+};
+
+let firstHistory = new Map().set(
+  0,
+  new Todo(TODO_TPYE.DOING, "첫째 할 일", ["favorite"])
+);
 
 let secondHistory = new Map();
 
-secondHistory.set(1, {
-  type: TODO_TPYE.DOING,
-  name: "두번째 할 일",
-  tags: []
-});
-secondHistory.set(2, {
-  type: TODO_TPYE.DOING,
-  name: "세번째 할 일",
-  tags: []
-});
+secondHistory.set(1, new Todo(TODO_TPYE.DOING, "두번째 할 일", []));
+secondHistory.set(2, new Todo(TODO_TPYE.DOING, "세번째 할 일", []));
 
 let history = new Map();
 history.set(new Date("1995-12-17T03:24:00"), firstHistory);
@@ -99,12 +96,10 @@ const show = type => {
     showType(type);
   } else {
     showCurrent();
-    console.log(history);
   }
 };
 
 const groupByType = data => {
-  console.log(data);
   return Array.from(data.keys()).reduce((accumulator, val) => {
     let curData = data.get(val);
     if (accumulator[curData.type]) {
@@ -120,17 +115,19 @@ const groupByType = data => {
     }
   }, {});
 };
-
 const showCurrent = () =>
   pipe(
     getCurrentData,
     groupByType,
     currentDataObj =>
-      Object.entries(currentDataObj)
-        .map(([key, val]) => {
-          return "[" + key + "]" + ":" + val.map(item => item.id).join(",");
-        })
-        .join(","),
+      Object.entries(currentDataObj).reduce((accumulator, curval, idx) => {
+        const [key, value] = curval;
+        const stringfiedData = `[${key}:${value
+          .map(item => item.id)
+          .join(",")}]`;
+        return idx === 0 ? stringfiedData : accumulator + "," + stringfiedData;
+      }, ""),
+
     result => console.log(result)
   )();
 
@@ -140,47 +137,56 @@ const showType = type =>
     groupByType,
     currentDataObj => currentDataObj[type],
     typeDataList => {
-      let reulstStr;
-      reulstStr = `총 ${typeDataList.length}: `;
-      return (reulstStr += typeDataList
-        .map(({ name, id }) => {
-          return "'" + name + "," + id + "번'";
-        })
-        .join(","));
+      return typeDataList.reduce((accumulator, curval, idx) => {
+        const { name, id } = curval;
+        const stringfiedData = `'${name},${id}번'`;
+        return idx === 0
+          ? accumulator + stringfiedData
+          : accumulator + "," + stringfiedData;
+      }, `총 ${typeDataList.length}: `);
     },
     result => console.log(result)
   )();
 
 todoFuncs.set("show", show);
 
+const setAddHistory = data => {
+  const { name, tags } = data;
+  const id = getUniqueId();
+  const newHistory = new Map(getCurrentData());
+  newHistory.set(id, { type: TODO_TPYE.TODO, name: name, tags: tags });
+  history.set(new Date(), newHistory);
+};
+
 //
 const add = (name, tags) =>
   pipe(
-    () => {
-      const id = getUniqueId();
-      const newHistory = new Map(getCurrentData());
-      newHistory.set(id, { type: TODO_TPYE.TODO, name: name, tags: tags });
-      history.set(new Date(), newHistory);
-    },
+    setAddHistory,
     showCurrent
-  )();
+  )({ name, tags });
+
 todoFuncs.set("add", add);
+
+const setUpdateHistory = data => {
+  const { id, type } = data;
+  const newHistory = new Map(getCurrentData());
+  newHistory.set(id, { ...newHistory.get(id), type: type });
+  history.set(new Date(), newHistory);
+};
+
+const delayUpdate = () =>
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve();
+    }, 2000);
+  });
 
 const update = (id, type) =>
   pipe(
-    () => {
-      const newHistory = new Map(getCurrentData());
-      newHistory.set(id, { ...newHistory.get(id), type: type });
-      history.set(new Date(), newHistory);
-    },
-    () =>
-      new Promise((resolve, reject) => {
-        setTimeout(() => {
-          resolve();
-        }, 2000);
-      }),
-    deplyPromise => deplyPromise.then(showCurrent)
-  )();
+    setUpdateHistory,
+    delayUpdate,
+    delayPromise => delayPromise.then(showCurrent)
+  )({ id, type });
 
 todoFuncs.set("update", update);
 
@@ -191,8 +197,9 @@ todoFuncs.set("delete", deleteFunc);
 const excuteFuncByName = args => {
   const funcName = args[0];
   const [, ...funcArgs] = args;
+
   if (todoFuncs.get(funcName)) {
-    todoFuncs.get(funcName)(...funcArgs);
+    return todoFuncs.get(funcName)(...funcArgs);
   } else {
     throw { msg: "command not exist" };
   }
