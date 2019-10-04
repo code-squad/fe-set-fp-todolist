@@ -1,21 +1,18 @@
-const http = require("http");
 const fs = require("fs");
+const express = require("express");
+const cors = require("cors");
+const app = express();
 
-const server = http.createServer((req, res) => {
-  try {
-    fs.readFile("./news-data.json", (err, data) => {
-      if (err) throw err;
+app.use(cors());
 
-      res.writeHead(200, { "Content-Type": "application/json" });
-      res.write(data);
-      res.end();
-    });
-  } catch (error) {
-    console.error(err);
-    res.err;
-    res.end();
-  }
+// respond with "hello world" when a GET request is made to the homepage
+app.get("/", function(req, res) {
+  fs.readFile("./news-data.json", { encoding: "utf8" }, (err, data) => {
+    if (err) throw err;
+
+    res.json(data);
+  });
 });
 
-server.listen(8080);
-console.log("server has started.");
+app.listen(8080);
+console.log("server start..");
