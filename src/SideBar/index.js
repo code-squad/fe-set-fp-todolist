@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styled from 'styled-components';
 import CompanyItem from "./CompanyItem";
-
+import {NewsContext} from "../MyNews";
 import useSelectedCompany from "../hooks/useSelectedCompany";
 
 const StyledList = styled.ul`
@@ -11,8 +11,8 @@ const StyledList = styled.ul`
   margin-top: 0;
   `
 
-const SideBar = ({ companyList, selectedCompany, setSelected}) => {
-  
+const SideBar = () => {
+  const {companyList, selectedCompany, setSelected} = useContext(NewsContext)
   const handleClick = useSelectedCompany(companyList, setSelected);
 
   return (

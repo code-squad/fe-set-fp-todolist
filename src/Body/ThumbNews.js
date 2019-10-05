@@ -10,7 +10,7 @@ const OverText = styled.p`overflow: hidden;text-overflow: ellipsis; color: white
 const ThumbNews = ({ imageUrl, text }) => {
   return (
     <ThumbWrapper>
-      <img src={imageUrl} />
+      <img src={imageUrl} alt={imageUrl}/>
       <OverWrapper>
         <OverBackground />
           <OverText>{text}</OverText>
