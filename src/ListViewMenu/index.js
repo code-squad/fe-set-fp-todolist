@@ -8,14 +8,11 @@ const LogoButton = styled.img`
   border-bottom: ${props=>props.selected ? "2px solid #18d818" : ""}
 `
 
-const ListViewMenu = () => {
+const ListViewMenu = ({groupIndex, offset}) => {
   const { companyList, selectedCompany, setSelected } = useContext(NewsContext);
-
-  const offset = 18;
-  const startIndex = parseInt(selectedCompany.index / offset) * offset;
-  const splitedList = companyList.slice(startIndex, startIndex + offset);
-
   const handleClick = useSelectedCompany(companyList, setSelected);
+
+  const splitedList = companyList.slice(groupIndex * offset, groupIndex * offset + offset); 
 
   return (
     splitedList.map(({ logoImgUrl, id }) =>
