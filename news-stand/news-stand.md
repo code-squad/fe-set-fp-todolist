@@ -18,7 +18,7 @@
 	</Header>
 
 	<Content>
-		<CardView exact>
+		<CardView>
 		<ListView>
 	</Content>
 </App>

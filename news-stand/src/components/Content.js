@@ -1,14 +1,27 @@
 import React from 'react';
+import { Route, Switch } from "react-router-dom";
 
-import CardView from './CardView';
-import ListView from './ListView';
+import CardView from './cardview/CardView';
+import ListView from './listview/ListView';
+import NewsContentContext from '../context/NewsContentContext';
 
-const Content = ({props}) => {
+import {CARD_URL, LIST_URL} from '../constant';
+
+const Content = ({newsData}) => {
+	const newsContentData = {
+			newsData
+		}
+
 	return (
-		<div>
-			<CardView></CardView>
-			<ListView></ListView>
-		</div>
+		<NewsContentContext.Provider value={newsContentData}>
+			<div>
+				<Switch>
+					<Route path={`${CARD_URL}/:id`} component={CardView}></Route>
+					<Route path={`${LIST_URL}`} component={ListView}></Route>
+					<Route component={CardView}></Route>
+				</Switch>
+			</div>
+		</NewsContentContext.Provider>
 	);
 }
 
