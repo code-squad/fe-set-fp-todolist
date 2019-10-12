@@ -2,19 +2,20 @@ import React from "react";
 
 import Category from "./Category";
 import FlickView from "./FlickView";
+import { useParams } from "react-router-dom";
 
-import { ViewTypeConsumer } from "../../context/ViewTypeProvider";
+const Body = () => {
+  let { viewType } = useParams();
 
-const Body = () => (
-  <div
-    className="an_panel_list _PM_newsstand_list"
-    style={{ display: "block" }}
-  >
-    <ViewTypeConsumer>
-      {({ viewType }) => (viewType === "list" ? <Category /> : null)}
-    </ViewTypeConsumer>
-    <FlickView />
-  </div>
-);
+  return (
+    <div
+      className="an_panel_list _PM_newsstand_list"
+      style={{ display: "block" }}
+    >
+      {viewType === "list" ? <Category /> : null}
+      <FlickView viewType={viewType} />
+    </div>
+  );
+};
 
 export default Body;

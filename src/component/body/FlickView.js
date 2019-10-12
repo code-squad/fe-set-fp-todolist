@@ -2,26 +2,23 @@ import React from "react";
 import ImageView from "./imageView/ImageView";
 import ListView from "./listView/ListView";
 
-import { ViewTypeConsumer } from "../../context/ViewTypeProvider";
 import { ListPagingConsumer } from "../../context/ListPagingProvider";
 
-const FlickView = () => (
+const FlickView = ({ viewType }) => (
   <div className="flick-view">
     <div className="flick-container">
       <div className="flick-panel">
-        <ViewTypeConsumer>
-          {({ viewType }) => (
-            <ListPagingConsumer>
-              {({ company }) =>
-                viewType === "image" ? (
-                  <ImageView />
-                ) : (
-                  <ListView companyName={company ? company.name : ""} />
-                )
-              }
-            </ListPagingConsumer>
-          )}
-        </ViewTypeConsumer>
+        {
+          <ListPagingConsumer>
+            {({ company }) =>
+              viewType === "image" ? (
+                <ImageView />
+              ) : (
+                <ListView companyName={company ? company.name : ""} />
+              )
+            }
+          </ListPagingConsumer>
+        }
       </div>
     </div>
   </div>
