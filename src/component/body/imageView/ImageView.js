@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 
 import useCompanyList from "../../../hooks/useNewsCompanyList";
-import { ImagePagingConsumer } from "../../../context/ImagePagingProvider";
+import { ImagePagingContext } from "../../../App";
 
 const ImageView = () => {
+  const { state } = useContext(ImagePagingContext);
+  const { companyList } = state;
   const listRender = ({ logo, name }, index) => (
     <li key={index} className="api_item">
       <a href="#" className="api_link" target="_blank">
@@ -13,15 +15,11 @@ const ImageView = () => {
   );
 
   return (
-    <ImagePagingConsumer>
-      {({ companyList }) => (
-        <ul className="api_list">
-          {companyList
-            ? companyList.map((item, index) => listRender(item, index))
-            : null}
-        </ul>
-      )}
-    </ImagePagingConsumer>
+    <ul className="api_list">
+      {companyList
+        ? companyList.map((item, index) => listRender(item, index))
+        : null}
+    </ul>
   );
 };
 
