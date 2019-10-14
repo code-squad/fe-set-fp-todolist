@@ -17,7 +17,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9013/174253_001.jpg",
         text: "'압수수색 검사와 통화' 조국 발언에 술렁…고성 · 야유"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "MBN",
@@ -36,7 +37,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9012/175213_001.jpg",
         text: "조국 '압수수색시 검사 팀장과 통화…수사지휘 안 했다'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "스포츠서울",
@@ -55,7 +57,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9032/172158_001.png",
         text: "클라라, 식당에서 꿀벅지 훤히 드러낸 채…"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "JTBC",
@@ -74,7 +77,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9110/180356_001.jpg",
         text: "조국 '한국 검찰, 다른 나라에 비해 권한 막강'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "이웃집과학자",
@@ -93,7 +97,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9212/135852_001.jpg",
         text: "하나의 행성, 두 개의 연구 나왔다"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "MBC",
@@ -112,7 +117,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9011/173353_001.jpg",
         text: "강화군서 7번째 확진…이동 중지 명령 48시간 연장"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "헤럴드경제",
@@ -131,7 +137,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9023/173753_001.jpg",
         text: "나경원·오신환, '조국 압수수색 검사 통화'에 '중대위법·탄핵사유'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "KBS World",
@@ -150,7 +157,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9057/180054_001.jpg",
         text: "Justice Minister Cho Faces Angry Lawmakers at Parliame..."
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "세계일보",
@@ -169,7 +177,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9006/160950_001.jpg",
         text: "검찰, 조국 동생·前 제수 첫 소환… '웅동학원 의혹' 조사"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "한국경제TV",
@@ -188,7 +197,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9014/180749_001.jpg",
         text: "`인텔의 역습`...한국에서 메모리 청사진 발표"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "뉴시스",
@@ -207,7 +217,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9078/181005_001.jpg",
         text: "조국 '소환되면 그때 거취 고민하겠다'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "머니투데이",
@@ -226,7 +237,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9017/181005_001.jpg",
         text: "임우재, 이부진에 2심도 패소 재산분할 55억 늘어난 이유"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "경향신문",
@@ -245,7 +257,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9001/180356_001.jpg",
         text: "이인영 '완전히 민심이 돌아섰다고 말할 순 없지만···'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "국민일보",
@@ -264,7 +277,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9002/175213_001.jpg",
         text: "조국 '집 압수수색 중 검사와 통화했다'… 野 '탄핵 추진'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "노컷뉴스",
@@ -283,7 +297,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9028/180356_001.jpg",
         text: "[단독]'위안부=매춘' 류석춘, 결국 한국당 탈당"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "뉴데일리",
@@ -302,7 +317,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9058/180054_001.jpg",
         text: "조국, 자택 압수수색 때 '현장 검사'에게 전화했다"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "뉴스타파",
@@ -321,7 +337,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9144/112835_001.jpg",
         text: "[죄수와 검사] ⑧ '박재벌' 통화내역, 청와대 그리고 22명의 검사들"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "데일리안",
@@ -340,7 +357,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9090/180054_001.jpg",
         text: "文경제 정책에 국민 75% 낙제점…0점도 20% ..."
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "동아일보",
@@ -359,7 +377,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9003/165218_001.jpg",
         text: "조국, 자택 압색때 수사 검사에 전화…野 '직권남용'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "디지털타임스",
@@ -378,7 +397,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9024/165455_001.jpg",
         text: "문재인 '나라다운 나라에 도달하지 못했다'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "마이데일리",
@@ -397,7 +417,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9045/180356_001.jpg",
         text: "조관우 '수억원 빚으로 떠돌이 생활중'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "매일경제",
@@ -416,7 +437,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9016/181247_001.jpg",
         text: "향수의 귀재 조말론 '기업가정신의 황금기는…'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "문화일보",
@@ -435,7 +457,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9004/165218_001.jpg",
         text: "文·曺 권력유지 수단은 '증오' 재생산… 오만으로 위기 자초"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "미디어오늘",
@@ -454,7 +477,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9029/175213_001.jpg",
         text: "나경원 '대일민국' 보도, 1억 손해배상 청구"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "블로터",
@@ -473,7 +497,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9054/173955_001.jpg",
         text: "국토부, 올해 안에 '플랫폼 택시법' 만든다"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "서울경제",
@@ -492,7 +517,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9018/180749_001.jpg",
         text: "前 법무장관·검찰총장 '조국퇴진' 시국선언...참여자는"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "서울신문",
@@ -511,7 +537,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9005/174253_001.jpg",
         text: "조국 '檢 소환되면 사퇴 고민…아내 기소 이해충돌 無'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "스포츠동아",
@@ -530,7 +557,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9047/151600_001.jpg",
         text: "톱배우, 요트 위에서 은밀한 마사지 포착"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "스포츠조선",
@@ -549,7 +577,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9033/180054_001.jpg",
         text: "유이, 수준급 폴댄스 실력 과시…늘씬 몸매 '감탄'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "스포탈코리아",
@@ -568,7 +597,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9056/163717_001.jpg",
         text: "무리한 팬서비스 요구 받은 손흥민 반응"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "시사인",
@@ -586,7 +616,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9052/093348_001.jpg",
         text: "이 작은 물고기에 깃든 역사"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "아시아경제",
@@ -605,7 +636,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9019/175837_001.jpg",
         text: "배달료에 용기값 추가…분식 2만원 넘어 '황당'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "아이뉴스24",
@@ -624,7 +656,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9025/181005_001.jpg",
         text: "페이스북, 新VR 세상 '호라이즌' 공개"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "연합뉴스TV",
@@ -643,7 +676,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9109/181005_001.jpg",
         text: "확진 7곳·의심 3곳…전국 돼지 이동중지 연장"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "오마이뉴스",
@@ -662,7 +696,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9030/181005_001.jpg",
         text: "조국 장관 입 열자 의자 돌린 한국당... 민주당 '유치하게!'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "이데일리",
@@ -681,7 +716,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9020/181005_001.jpg",
         text: "1차 검사때 발암물질 없다더니 라디티딘 제품 전량 회수…왜?"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "일간스포츠",
@@ -700,7 +736,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9034/170406_001.jpg",
         text: "YG 떠나라는 팬들 요청에 악동뮤지션의 대답은"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "전자신문",
@@ -719,7 +756,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9026/180054_001.jpg",
         text: "구글 페이스북, 네이버 카카오보다 3배 쉽게 개인정보 획득"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "조선비즈",
@@ -738,7 +776,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9088/175837_001.jpg",
         text: "식약처, 또 원료관리 안해 '잔탁' 등 뒷북… 의협 '존재이유 뭔가'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "조선일보",
@@ -757,7 +796,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9007/181247_001.jpg",
         text: "법조계 '조국, 검사와 통화 자체가 특권…지위 이"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "중앙데일리",
@@ -776,7 +816,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9061/123346_001.jpg",
         text: "At UN, Moon says DMZ can bring security"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "파이낸셜뉴스",
@@ -796,7 +837,8 @@ module.exports = {
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9021/181247_001.jpg",
         text:
           "고추냉이 먹고 가슴 통증 느낀 여성, 병원서 진단 받은 충격적인 질..."
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "프레시안",
@@ -815,7 +857,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9031/180054_001.jpg",
         text: "나경원 '조국 후보자, 형사 고발하고 탄핵 추진'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "한겨레",
@@ -834,7 +877,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9009/180749_001.jpg",
         text: "[라이브] 제2의 조국 청문회? 대정부질문 생중계"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "한국경제",
@@ -853,7 +897,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9022/175459_001.jpg",
         text: "LG이노텍, 사업 구조조정…스마트폰 기판 생산 접어"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "한국일보",
@@ -872,7 +917,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9010/180749_001.jpg",
         text: "이춘재, 화성 7차 사건 직후 흉기 소지하고 다녔다"
-      }
+      },
+      onSubscribe: false
     },
     {
       company: "KBS",
@@ -891,7 +937,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9044/181247_001.jpg",
         text: "[단독] 나경원 아들 '제4 저자' 연구 '무임승차' 의혹"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "OSEN",
@@ -910,7 +957,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9055/102827_001.jpg",
         text: "박나래, 전현무에 '헤어질 줄 알았다' 돌직구"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "YTN",
@@ -929,7 +977,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9015/181005_001.jpg",
         text: "나경원, 화재 현장 방문에 소방관 도열…'제발 좀'"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "지디넷코리아",
@@ -948,7 +997,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9027/181005_001.jpg",
         text: "내년 초 '모바일 운전면허증' 나온다…규제 샌드박스, 임시허가"
-      }
+      },
+      onSubscribe: true
     },
     {
       company: "중앙일보",
@@ -967,7 +1017,8 @@ module.exports = {
         imageUrl:
           "https://s.pstatic.net/static/newsstand/2019/0926/article_img/9008/180356_001.jpg",
         text: "조국, 통화 논란에 '가장으로서 할 수 있지 않나'"
-      }
+      },
+      onSubscribe: true
     }
   ]
 };

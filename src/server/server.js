@@ -17,19 +17,44 @@ app.get("/api/news/:company", (req, res) => {
   );
 });
 
+app.get("/api/news/my/:company/:subscribe", (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  const company = response_mock.list.find(
+    item => item.company === req.params.company
+  );
+  const index = response_mock.list.indexOf(company);
+  response_mock.list[index] = {
+    ...response_mock.list[index],
+    onSubscribe: req.params.subscribe == "true"
+  };
+  return res.json({ msg: "okay" });
+});
+
 app.get("/api/news/my/companies", (req, res) => {
   res.header("Access-Control-Allow-Origin", "*");
   return res.json({
-    total: response_mock.list.length,
+    total: response_mock.list.filter(item => {
+      if (req.query.onSubscribe) {
+        return item.onSubscribe;
+      } else {
+        return true;
+      }
+    }).length,
     list: response_mock.list
+      .filter(item => {
+        if (req.query.onSubscribe) {
+          return item.onSubscribe;
+        } else {
+          return true;
+        }
+      })
       .map(item => ({
         name: item.company,
-        logo: item.logoImgUrl
+        logo: item.logoImgUrl,
+        onSubscribe: item.onSubscribe
       }))
+
       .sort()
-      .slice(
-        req.query.startIndex,
-        req.query.startIndex + req.query.startIndex + req.query.rowCount
-      )
+      .slice(req.query.startIndex, req.query.startIndex + req.query.rowCount)
   });
 });

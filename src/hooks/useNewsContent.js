@@ -19,7 +19,7 @@ const useNewsContent = () => {
   const {
     state: companyListState,
     dispatch: companyListDispatch
-  } = useCompanyList(100);
+  } = useCompanyList(true, 100);
   const { companyList } = companyListState;
 
   const validateCompnayIndex = index => {
@@ -44,7 +44,7 @@ const useNewsContent = () => {
       }
 
       case "init": {
-        companyListDispatch({ type: "init" });
+        companyListDispatch({ type: "page_load" });
         return { ...state, companyIndex: 0 };
       }
       case "find_companyObj": {
@@ -83,6 +83,7 @@ const useNewsContent = () => {
 
   useEffect(() => {
     companyList &&
+      companyList.length > 0 &&
       state.companyIndex >= 0 &&
       load(companyList[state.companyIndex].name);
   }, [state.companyIndex, companyList]);

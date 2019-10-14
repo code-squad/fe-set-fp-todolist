@@ -10,14 +10,13 @@ const initialState = rowCount => ({
   total: 0
 });
 
-const useCompanyList = rowCount => {
+const useCompanyList = (onSubscribe, rowCount) => {
   const isValidStartIndex = (state, startIndex) => {
     return startIndex >= 0 && startIndex <= state.total;
   };
 
   const reducer = (state, action) => {
-    const COMPANY_LIST_URL = `http://localhost:4000/api/news/my/companies?startIndex=${state.startIndex}&rowCount=${state.rowCount}`;
-
+    const COMPANY_LIST_URL = `http://localhost:4000/api/news/my/companies?startIndex=${state.startIndex}&rowCount=${state.rowCount}&onSubscribe=${onSubscribe}`;
     switch (action.type) {
       case "page_up":
         if (isValidStartIndex(state, state.startIndex + state.rowCount)) {
@@ -31,6 +30,7 @@ const useCompanyList = rowCount => {
         } else {
           return state;
         }
+
       case "page_load": {
         fetch(COMPANY_LIST_URL)
           .then(res => res.json())
@@ -41,7 +41,20 @@ const useCompanyList = rowCount => {
               total: result.total
             });
           });
+        return state;
       }
+      case "subscribe": {
+        const COMPANY_SUBSCRIBE_URL = `http://localhost:4000/api/news/my/${action.company}/${action.subscribe}`;
+        fetch(COMPANY_SUBSCRIBE_URL)
+          .then(res => res.json())
+          .then(result => {
+            dispatch({
+              type: "page_load"
+            });
+          });
+        return state;
+      }
+
       case "update_page": {
         return {
           ...state,
