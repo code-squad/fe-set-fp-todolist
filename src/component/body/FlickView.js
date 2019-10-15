@@ -1,30 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import ImageView from "./imageView/ImageView";
 import ListView from "./listView/ListView";
 
-import { ViewTypeConsumer } from "../../context/ViewTypeProvider";
-import { ListPagingConsumer } from "../../context/ListPagingProvider";
+import { ListPagingContext } from "../../App";
 
-const FlickView = () => (
-  <div className="flick-view">
-    <div className="flick-container">
-      <div className="flick-panel">
-        <ViewTypeConsumer>
-          {({ viewType }) => (
-            <ListPagingConsumer>
-              {({ company }) =>
-                viewType === "image" ? (
-                  <ImageView />
-                ) : (
-                  <ListView companyName={company ? company.name : ""} />
-                )
-              }
-            </ListPagingConsumer>
-          )}
-        </ViewTypeConsumer>
+const FlickView = ({ viewType }) => {
+  const { state } = useContext(ListPagingContext);
+  const { companyObj } = state;
+  return (
+    <div className="flick-view">
+      <div className="flick-container">
+        <div className="flick-panel">
+          {viewType === "image" ? (
+            <ImageView />
+          ) : companyObj ? (
+            <ListView companyObj={companyObj} />
+          ) : null}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default FlickView;

@@ -1,27 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 
-import useCompanyList from "../../../hooks/useNewsCompanyList";
-import { ImagePagingConsumer } from "../../../context/ImagePagingProvider";
+import { ImagePagingContext } from "../../../App";
+import ImageViewLi from "./ImageViewLi";
 
 const ImageView = () => {
-  const listRender = ({ logo, name }, index) => (
-    <li key={index} className="api_item">
-      <a href="#" className="api_link" target="_blank">
-        <img src={logo} height="24" alt={name} className="api_logo" />
-      </a>
-    </li>
-  );
+  const { state, dispatch } = useContext(ImagePagingContext);
+  const { companyList } = state;
+
+  const listRender = ({ logo, name }, index) => {
+    const onButtonClick = () => {
+      dispatch({
+        type: "subscribe",
+        company: name,
+        subscribe: false
+      });
+    };
+    return (
+      <ImageViewLi
+        key={index}
+        index={index}
+        logo={logo}
+        name={name}
+        isMyNews={true}
+        onButtonClick={onButtonClick}
+      />
+    );
+  };
 
   return (
-    <ImagePagingConsumer>
-      {({ companyList }) => (
-        <ul className="api_list">
-          {companyList
-            ? companyList.map((item, index) => listRender(item, index))
-            : null}
-        </ul>
-      )}
-    </ImagePagingConsumer>
+    <ul className="api_list">
+      {companyList
+        ? companyList.map((item, index) => listRender(item, index))
+        : null}
+    </ul>
   );
 };
 
